@@ -31,6 +31,16 @@
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Downloads</HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/Media/Comics</HostDir>
+      <ContainerDir>/comics</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
 </Container>
 
