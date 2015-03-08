@@ -21,6 +21,7 @@ RUN apt-get clean
 # download and install mylar
 RUN git clone https://github.com/evilhero/mylar.git -b development /opt/mylar
 RUN chown nobody:users /opt/mylar
+RUN cp -R /opt/mylar/post-processing/ /config/
 
 
 EXPOSE 8090
