@@ -15,7 +15,7 @@ RUN usermod -g 100 nobody
 RUN apt-get update -qq
 
 # install dependencies for building mylar
-RUN apt-get install python git-core -qq
+RUN apt-get install python git-core python-openssl -qq
 RUN apt-get clean
 
 # download and install mylar
