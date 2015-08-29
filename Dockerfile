@@ -15,13 +15,20 @@ RUN usermod -g 100 nobody
 RUN apt-get update -qq
 
 # install dependencies for building mylar
-RUN apt-get install python git-core python-openssl -qq
+RUN apt-get install python git-core python-openssl wget -qq
 RUN apt-get clean
 
 # download and install mylar
 RUN git clone https://github.com/evilhero/mylar.git -b development /opt/mylar
 RUN git clone https://github.com/davide-romanini/comictagger.git /opt/comictagger
 RUN cp -R /opt/comictagger /opt/mylar
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN python get-pip.py
+RUN pip install configparser
+RUN pip install beautifulsoup4
+RUN pip install unrar
+RUN pip install natsort
+RUN pip install PyPDF2
 RUN chown nobody:users /opt/mylar
 
 
