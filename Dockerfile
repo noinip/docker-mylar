@@ -1,16 +1,20 @@
+# set base os 
 FROM phusion/baseimage:0.9.16
-MAINTAINER pinion <pinion@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
 ENV HOME /root
 
+# Configure user nobody to match unRAID's settings
+ RUN \
+ usermod -u 99 nobody && \
+ usermod -g 100 nobody && \
+ usermod -d /home nobody && \
+ chown -R nobody:users /home
+
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-# Fix a Debianism of the nobody's uid being 65534
-RUN usermod -u 99 nobody
-RUN usermod -g 100 nobody
 
 RUN apt-get update -qq
 
@@ -47,6 +51,9 @@ VOLUME /comics
 
 # Copy out the auto processing scripts to the config directory
 RUN cp -R /opt/mylar/post-processing/ /config/
+
+#change ownership on opt because HEY! Maybe it will fix that one thing! ...?
+RUN chown -R nobody:users /opt
 
 # Add mylar to runit
 RUN mkdir /etc/service/mylar
