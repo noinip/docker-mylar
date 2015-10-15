@@ -50,9 +50,8 @@ VOLUME /downloads
 VOLUME /comics
 
 # Copy out the auto processing scripts to the config directory
-RUN \
-  cp -R /opt/mylar/post-processing/ /config/ && \
-  cp /opt/mylar/*.csv /opt/mylar/taco/
+RUN cp -R /opt/mylar/post-processing/ /config/
+RUN cp /opt/mylar/*.csv /opt/mylar/taco/
 
 #change ownership on opt because HEY! Maybe it will fix that one thing! ...?
 RUN chown -R nobody:users /opt
