@@ -15,7 +15,7 @@ ENV HOME /root
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-
+RUN add-apt-repository ppa:fkrull/deadsnakes-python2.7 -y
 RUN apt-get update -qq
 
 # install dependencies for building mylar
