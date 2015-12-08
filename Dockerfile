@@ -37,7 +37,7 @@ RUN python get-pip.py
 RUN pip install -U comictagger
 #RUN pip install configparser
 #RUN pip install beautifulsoup4
-#RUN pip install unrar
+RUN pip install unrar
 #RUN pip install natsort
 #RUN pip install PyPDF2
 RUN chown nobody:users /opt/mylar
