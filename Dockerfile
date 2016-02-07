@@ -22,6 +22,12 @@ RUN apt-get update -qq
 RUN apt-get install python git-core python-openssl wget -qq
 RUN apt-get clean
 
+# install python 2.7.9 so torrent downloads work
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ vivid main"
+RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ utopic main"
+RUN apt-get update
+RUN apt-get -t vivid install python2.7 -qq
+
 # download and install mylar
 RUN git clone https://github.com/evilhero/mylar.git -b development /opt/mylar
 #RUN git clone https://github.com/davide-romanini/comictagger.git /opt/comictagger
@@ -31,7 +37,7 @@ RUN python get-pip.py
 RUN pip install -U comictagger
 #RUN pip install configparser
 #RUN pip install beautifulsoup4
-#RUN pip install unrar
+RUN pip install unrar
 #RUN pip install natsort
 #RUN pip install PyPDF2
 RUN chown nobody:users /opt/mylar
