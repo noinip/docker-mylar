@@ -23,10 +23,13 @@ RUN apt-get install python git-core python-openssl wget -qq
 RUN apt-get clean
 
 # install python 2.7.9 so torrent downloads work
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ vivid main"
-RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ utopic main"
-RUN apt-get update
-RUN apt-get -t vivid install python2.7 -qq
+# Took this out since this shit is bombing.
+# TODO get python 2.7.9 I guess.
+# TODO make it so this docker isn't held together with wood glue
+#RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ vivid main"
+#RUN add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ utopic main"
+#RUN apt-get update
+#RUN apt-get -t vivid install python2.7 -qq
 
 # download and install mylar
 RUN git clone https://github.com/evilhero/mylar.git -b development /opt/mylar
