@@ -1,5 +1,5 @@
 # set base os 
-FROM phusion/baseimage:0.9.17
+FROM linuxserver/baseimage
 ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
