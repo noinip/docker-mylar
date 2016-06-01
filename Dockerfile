@@ -1,4 +1,4 @@
-# set base os 
+# set base os
 FROM linuxserver/baseimage
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -19,7 +19,7 @@ RUN add-apt-repository ppa:fkrull/deadsnakes-python2.7 -y
 RUN apt-get update -qq
 
 # install dependencies for building mylar
-RUN apt-get install python git-core python-openssl wget -qq
+RUN apt-get install python git-core python-openssl wget unrar -qq
 RUN apt-get clean
 
 # install python 2.7.9 so torrent downloads work
